@@ -1,10 +1,39 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | 1111人力營行` : `111` }}</template>
+  </metainfo>
+  <router-view />
 </template>
+
+<script>
+import { useMeta } from 'vue-meta'
+
+export default {
+  setup () {
+    useMeta({
+      title: '1111',
+      htmlAttrs: { 
+          lang: 'constants.meta.language',
+        },
+        description: 'constants.main.description',
+        meta: [
+            {
+              name: 'author',
+              content: '111111'
+            },
+            {
+              name: 'keywords',
+              content: '11111'
+            },
+            {
+              name: 'robots',
+              content: '1111'
+            }
+          ]
+    })
+  }
+}
+</script>
 
 <style lang="scss">
 #app {

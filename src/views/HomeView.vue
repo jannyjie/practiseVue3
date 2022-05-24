@@ -1,18 +1,68 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <router-link to="/bb">bb</router-link>
+  <experience :class-name="`workSwiper`" :itemList="itemList" :delay="5000" :item-list-open="true"  :prev="`prevA`" :next="`nextA`"> 
+    <template v-slot:next>
+        <p>next</p>
+    </template>
+    <template v-slot:prev>
+        <p>prev</p>
+    </template>
+  </experience>
+  <experience :class-name="`qq`" :itemList="itemList" :delay="3000" :item-list-open="true" :prev="`prevB`" :next="`nextB`"> 
+    <template v-slot:next>
+        <p>next</p>
+    </template>
+    <template v-slot:prev>
+        <p>prev</p>
+    </template>
+  </experience>
+
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import experience from '@/components/ExperienceSwiper.vue';
+import {ref} from 'vue';
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+ components: {
+    experience
+  },
+  setup(){
+    const itemList = ref(
+      [
+        {
+          id: '1',
+          name: 'janny'
+        },
+        {
+          id: '2',
+          name: 'Jack'
+        },
+        {
+          id: '1',
+          name: 'janny'
+        },
+        {
+          id: '2',
+          name: 'Jack'
+        },
+        {
+          id: '1',
+          name: 'janny'
+        },
+        {
+          id: '2',
+          name: 'Jack'
+        }
+      ]
+    )
+    return {
+      itemList
+    }
   }
 }
 </script>
+
+<style>
+
+</style>

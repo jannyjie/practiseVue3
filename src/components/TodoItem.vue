@@ -15,7 +15,8 @@ export default {
         const imgRouter = computed(() => {
             const routerName = ref(route.name);
             const isRouter = routerName.value.includes('bb');
-            console.log('isRouter', isRouter);
+            // console.log('isRouter', isRouter);
+            
             return {
                 img: isRouter ? img01 : img02,
             }

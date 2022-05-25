@@ -11,7 +11,7 @@
 <script>
 import { inject, onMounted, ref} from "vue";
 import TodoItem from "@/components/TodoItem.vue";
-import { useFetchApi } from '../composition-api/useFetch'
+import { useFetchApi, loginApi } from '../composition-api/useFetch'
 export default{
   components: {
         TodoItem
@@ -29,6 +29,11 @@ export default{
     }
 
     console.log('user', goodsList);
+    let postData = {
+      email: 'javascriptBasics@gmail.com',
+      password: '1234'
+    };
+    loginApi(postData);
     
     return {button, goodsList, getGoodsList};
   },

@@ -1,8 +1,11 @@
 <!-- App.vue -->
 <template>
-  <NavBar/>
-  <router-view v-if="isRouterAlive"></router-view>
-  
+  <div id="app" class="app-containt">
+    <NavBar />
+    <!-- <router-view v-if="isRouterAlive"></router-view> -->
+    <router-view class="router-containt" v-if="isRouterAlive"></router-view>
+  </div>
+
   <!-- 在router-view使用isRouterAlive或者是下面这种在组件中使用 -->
   <!-- <BLank v-if="isRouterAlive"></BLank> -->
 </template>
@@ -13,7 +16,7 @@ import NavBar from "@/components/NavBar";
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBar,
   },
   setup() {
     // 局部组件刷新

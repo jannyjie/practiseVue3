@@ -19,6 +19,9 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/pinia">pinia</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/excel">Excel</router-link>
+        </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown

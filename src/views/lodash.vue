@@ -20,6 +20,12 @@
         data-bs-parent="#accordionExample"
       >
         <div class="accordion-body">
+          <a
+            href="https://www.cnblogs.com/t-sun-j/p/10642568.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >lodash常用的一些方法</a
+          >
           <P>import _get from 'lodash/get'</P>
           <P>import _map from 'lodash/map' </P>
           <P>import _uniq from 'lodash/uniq'</P>
@@ -164,6 +170,47 @@
         </div>
       </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsesix"
+          aria-expanded="false"
+          aria-controls="collapsesix"
+        >
+          <p>5._sortBy仅是升序排序</p>
+        </button>
+      </h2>
+      <div
+        id="collapsesix"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <p>
+            创建一个元素数组。 以 iteratee 处理的结果升序排序。
+            这个方法执行稳定排序，也就是说相同元素会保持原始排序。 iteratees
+            调用1个参数： (value)。
+          </p>
+          <sortBy />
+        </div>
+      </div>
+    </div>
+    <h3>2.compact，去除假值。（将所有的空值，0，NaN过滤掉）</h3>
+    <p>
+      _.compact(['1','2',' ',0]) // => ['1','2'] <br />
+      对应的还有一个数组去重函数，这在实际的开发中很有作用。
+    </p>
+    <h3>
+      3.uniq，数组去重。（将数组中的对象去重，只能是数组去重，不能是对象去重。）
+    </h3>
+    <p>
+      _.uniq([1,1,3]) // => [1,3] <br />
+      这跟介绍的第二个函数compact有很好的配合作用。（后端接口传来的数据很多是有重复或者空值的，这时候就可以使用两个函数来过滤数据。ladash只是最基础的库，其实可以将几个函数封装起来组件自己的库。）
+    </p>
   </div>
 </template>
 
@@ -173,6 +220,8 @@ import assign from "../components/lodash/assign.vue";
 import sample from "../components/lodash/sample.vue";
 import isEmpty from "../components/lodash/isEmpty.vue";
 import debounce from "../components/lodash/debounce.vue";
+import sortBy from "../components/lodash/sortBy.vue";
+
 export default {
   name: "lodashPage",
   components: {
@@ -181,6 +230,7 @@ export default {
     sample,
     isEmpty,
     debounce,
+    sortBy,
   },
   setup() {
     return {};

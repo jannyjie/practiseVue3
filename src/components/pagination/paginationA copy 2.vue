@@ -90,8 +90,6 @@ export default {
             Number(page_num.value) + (Number(num.value) - 1)
           )
         );
-        console.log(Number(page_num.value) - 1);
-        console.log(Number(page_num.value) + (Number(num.value) - 1));
       } else {
         bb.push(
           ...aa.slice(

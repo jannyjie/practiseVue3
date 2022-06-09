@@ -46,7 +46,7 @@ export default {
   setup() {
     const page_num = ref("1");
     const total = ref("16"); // 總數
-    const num = ref("10"); // 分頁數量
+    // const num = ref("10"); // 分頁數量
     const pageInput = ref(); // input
     function pageInputBtn(pages) {
       page_num.value = pages;
@@ -78,29 +78,55 @@ export default {
     }
 
     const plusOne = computed(() => {
-      const aa = []; // 運算
-      const bb = []; // 運算
+      const initial = []; // 運算
+      const result = []; // 運算
       for (let i = 0; i < total.value; i++) {
-        aa.push(i + 1);
+        initial.push(i + 1);
       }
-      if (Number(page_num.value) + 9 < Number(total.value)) {
-        bb.push(
-          ...aa.slice(
-            Number(page_num.value) - 1,
-            Number(page_num.value) + (Number(num.value) - 1)
+      console.log(initial);
+      if (Number(page_num.value) - 4 <= 0) {
+        console.log(initial.slice(0, 10));
+
+        result.push(
+          ...initial.slice(
+            0,
+            Number(page_num.value) + (10 - Number(page_num.value))
           )
         );
-        console.log(Number(page_num.value) - 1);
-        console.log(Number(page_num.value) + (Number(num.value) - 1));
+        console.log("result", initial);
+      } else if (
+        Number(page_num.value) - 4 >= 0 &&
+        Number(page_num.value) + 5 <= Number(total.value)
+      ) {
+        console.log(2);
+        console.log(
+          initial.slice(Number(page_num.value) - 5, Number(page_num.value) + 5)
+        );
+        result.push(
+          ...initial.slice(
+            Number(page_num.value) - 5,
+            Number(page_num.value) + 5
+          )
+        );
       } else {
-        bb.push(
-          ...aa.slice(
-            Number(total.value) - Number(num.value),
+        console.log(3);
+        console.log(
+          initial.slice(
+            Number(page_num.value) -
+              (10 - (Number(total.value) - Number(page_num.value))),
+            Number(total.value)
+          )
+        );
+        result.push(
+          ...initial.slice(
+            Number(page_num.value) -
+              (10 - (Number(total.value) - Number(page_num.value))),
             Number(total.value)
           )
         );
       }
-      return bb;
+
+      return result;
     });
 
     return {

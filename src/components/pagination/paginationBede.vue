@@ -9,7 +9,7 @@
         <a class="page-link" href="#">|&lt;</a>
       </li>
       <li class="page-item" :class="{ disabled: page_num == 1 }" @click="go_up">
-        <a class="page-link" href="#">Prev</a>
+        <button class="page-link">Prev</button>
       </li>
       <li
         class="page-item"
@@ -18,21 +18,21 @@
         @click="go_page(item)"
         :class="{ active: item == page_num }"
       >
-        <a class="page-link" href="#"> {{ item }}</a>
+        <button class="page-link">{{ item }}</button>
       </li>
       <li
         class="page-item"
         :class="{ disabled: page_num == total }"
         @click="next"
       >
-        <a class="page-link" href="#">Next</a>
+        <button class="page-link">Next</button>
       </li>
       <li
         class="page-item"
         @click="go_end"
         :class="{ disabled: page_num == total }"
       >
-        <a class="page-link" href="#">&gt;|</a>
+        <button class="page-link">&gt;|</button>
       </li>
     </ul>
     <input type="text" v-model="pageInput" />
@@ -46,13 +46,9 @@ export default {
   setup() {
     const page_num = ref("1");
     const total = ref("16"); // 總數
-    // const num = ref("10"); // 分頁數量
     const pageInput = ref(); // input
-
     const start = Number(page_num.value);
-    console.log("start", typeof start);
-    // const end = Number(total.value);
-
+    const end = Number(total.value);
     function pageInputBtn(pages) {
       page_num.value = pages;
     }
@@ -60,7 +56,7 @@ export default {
       page_num.value = pages;
     }
     function go_up() {
-      if (Number(page_num.value) <= 1) {
+      if (start <= 1) {
         page_num.value = 1;
         console.log("es");
       } else {
@@ -75,10 +71,10 @@ export default {
       page_num.value = total.value;
     }
     function next() {
-      if (Number(page_num.value) >= Number(total.value)) {
-        page_num.value = Number(total.value);
+      if (start >= end) {
+        page_num.value = end;
       } else {
-        page_num.value = Number(page_num.value) + 1;
+        page_num.value = start + 1;
       }
     }
 
@@ -89,46 +85,27 @@ export default {
         initial.push(i + 1);
       }
       console.log(initial);
-      if (Number(page_num.value) - 4 <= 0) {
-        console.log(initial.slice(0, 10));
+      if (start - 4 <= 0) {
+        // console.log(initial.slice(0, 10));
 
-        result.push(
-          ...initial.slice(
-            0,
-            Number(page_num.value) + (10 - Number(page_num.value))
-          )
-        );
-        console.log("result", initial);
-      } else if (
-        Number(page_num.value) - 4 >= 0 &&
-        Number(page_num.value) + 5 <= Number(total.value)
-      ) {
-        console.log(2);
-        console.log(
-          initial.slice(Number(page_num.value) - 5, Number(page_num.value) + 5)
-        );
-        result.push(
-          ...initial.slice(
-            Number(page_num.value) - 5,
-            Number(page_num.value) + 5
-          )
-        );
+        result.push(...initial.slice(0, start + (10 - start)));
+        // console.log("result", initial);
+      } else if (start - 4 >= 0 && start + 5 <= end) {
+        // console.log(2);
+        // console.log(
+        //   initial.slice(Number(page_num.value) - 5,start + 5)
+        // );
+        result.push(...initial.slice(start - 5, start + 5));
       } else {
-        console.log(3);
-        console.log(
-          initial.slice(
-            Number(page_num.value) -
-              (10 - (Number(total.value) - Number(page_num.value))),
-            Number(total.value)
-          )
-        );
-        result.push(
-          ...initial.slice(
-            Number(page_num.value) -
-              (10 - (Number(total.value) - Number(page_num.value))),
-            Number(total.value)
-          )
-        );
+        // console.log(3);
+        // console.log(
+        //   initial.slice(
+        //    start -
+        //       (10 - (end -start)),
+        //     end
+        //   )
+        // );
+        result.push(...initial.slice(start - (10 - (end - start)), end));
       }
 
       return result;

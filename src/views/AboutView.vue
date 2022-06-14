@@ -1,7 +1,8 @@
 <!-- test.vue -->
 <template>
-<input type="text">
- <button @click="button">测试按钮</button>
+  <imgError />
+  <input type="text" />
+  <button @click="button">测试按钮</button>
   <router-link to="/bb">bb</router-link>
   <div>
     <!-- input框输入值，点击按钮，看值会不会清空 -->
@@ -11,12 +12,14 @@
   <TodoItem />
 </template>
 <script>
-import { inject, onMounted, ref} from "vue";
+import { inject, onMounted, ref } from "vue";
 import TodoItem from "@/components/TodoItem.vue";
-import { useFetchApi, loginApi } from '../composition-api/useFetch'
-export default{
+import imgError from "@/components/imgError.vue";
+import { useFetchApi, loginApi } from "../composition-api/useFetch";
+export default {
   components: {
-        TodoItem
+    TodoItem,
+    imgError,
   },
   setup() {
     // setInterval(function(){
@@ -24,29 +27,26 @@ export default{
     //   window.location.reload();
     // }, 5000);
 
- 
-    
     const button = inject("reload");
-    
+
     onMounted(() => {
       // window.addEventListener('load', button)
-      window.addEventListener('readystatechange', button)
-     
-    })
+      window.addEventListener("readystatechange", button);
+    });
 
     const goodsList = ref();
     const getGoodsList = async () => {
-      goodsList.value = await useFetchApi()
-    }
+      goodsList.value = await useFetchApi();
+    };
 
-    console.log('user', goodsList);
+    console.log("user", goodsList);
     let postData = {
-      email: 'javascriptBasics@gmail.com',
-      password: '1234'
+      email: "javascriptBasics@gmail.com",
+      password: "1234",
     };
     loginApi(postData);
-    
-    return {button, goodsList, getGoodsList};
+
+    return { button, goodsList, getGoodsList };
   },
 };
 </script>

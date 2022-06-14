@@ -8,6 +8,19 @@
     @error="errorImage"
     alt=""
   />
+  <p>404 圖</p>
+  <img
+    v-if="open"
+    :src="'http://www.naoexiste.com'"
+    @error="errorImage"
+    alt=""
+  />
+  <p>有效截圖</p>
+  <img
+    :src="'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png'"
+    @error="errorImage"
+    alt=""
+  />
 </template>
 
 <script>
@@ -19,14 +32,41 @@ export default {
     );
     function errorImage(event) {
       event.target.src = img.value;
-      console.clear();
+      //   console.clear();
       // 關於控制台中的錯誤是默認瀏覽器行為，所以你唯一能做的就是清理console.clear();
     }
-    // const imgNew = new img();
-    // console.log(imgNew);
+
+    const open = ref(true);
+    function checkImgExists(imgurl) {
+      return new Promise(function (resolve, reject) {
+        var ImgObj = new Image();
+        ImgObj.src = imgurl;
+        ImgObj.onload = function (res) {
+          resolve(res);
+        };
+        ImgObj.onerror = function (err) {
+          reject(err);
+        };
+      });
+    }
+
+    checkImgExists("http://www.naoexiste.com")
+      .then(() => {
+        //success callback
+        open.value = true;
+        console.log("有效链接");
+      })
+      .catch(() => {
+        //fail callback
+        open.value = false;
+        console.log("无效链接");
+        console.clear();
+      });
+
     return {
       img,
       errorImage,
+      open,
     };
   },
 };

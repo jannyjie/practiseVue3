@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  publicPath: "./" ,  // 相对路径
   transpileDependencies: true,
    // 在專案開發中如果呼叫 API 時會 pass 給這個 proxy 網址
   // 這邊就用前面以 Valet 建立的網站網址
@@ -16,4 +17,25 @@ module.exports = defineConfig({
   // indexPath: process.env.NODE_ENV === 'production'
   //   ? '../resources/views/index.blade.php'
   //   : 'index.html'
+  // 如果配置超負荷需要添加這個
+  configureWebpack: config => {
+      // 为生产环境修改配置...
+      if (process.env.NODE_ENV === 'production') {
+          config.mode = 'production';
+          // 打包文件大小配置
+          config.performance = {
+            maxEntrypointSize: 10000000,
+            maxAssetSize: 30000000
+          }
+      }
+  },
+  chainWebpack: config =>{
+    config.plugin('html')
+      .tap(args => {
+        args[0].title = "title标题";
+        args[0].keywords = "keywords内容";
+        args[0].description = "description内容";
+        return args;
+      })
+  },
 })

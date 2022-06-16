@@ -8,10 +8,19 @@
 
   <!-- 在router-view使用isRouterAlive或者是下面这种在组件中使用 -->
   <!-- <BLank v-if="isRouterAlive"></BLank> -->
+  <a :href="featuredLink" target="_blank" rel="noopener noreferrer"></a>
+  <p v-font-size:small>small</p>
+  <p v-font-size:medium>medium</p>
+  <p v-font-size:large>large</p>
+  <allPlugin>
+    <template #title> I am Jenny </template>
+    <template #author> I am Jenny </template>
+  </allPlugin>
+  <button @click="logout">logout</button>
 </template>
 
 <script>
-import { ref, nextTick, provide } from "vue";
+import { ref, nextTick, provide, inject } from "vue";
 import NavBar from "@/components/NavBar";
 export default {
   name: "App",
@@ -34,8 +43,10 @@ export default {
     };
     provide("reload", reload);
 
+    const logout = inject("logout");
     return {
       isRouterAlive,
+      logout,
     };
   },
 };

@@ -1,5 +1,6 @@
 <!-- App.vue -->
 <template>
+  <metaPage />
   <div id="app" class="app-containt">
     <NavBar />
     <!-- <router-view v-if="isRouterAlive"></router-view> -->
@@ -22,10 +23,12 @@
 <script>
 import { ref, nextTick, provide, inject } from "vue";
 import NavBar from "@/components/NavBar";
+import metaPage from "@/components/meta.vue";
 export default {
   name: "App",
   components: {
     NavBar,
+    metaPage,
   },
   setup() {
     // 局部组件刷新
@@ -44,6 +47,7 @@ export default {
     provide("reload", reload);
 
     const logout = inject("logout");
+
     return {
       isRouterAlive,
       logout,

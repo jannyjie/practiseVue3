@@ -1,6 +1,7 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   publicPath: "./", // 相对路径
+  assetsPublicPath: "./",
   transpileDependencies: true,
   // 在專案開發中如果呼叫 API 時會 pass 給這個 proxy 網址
   // 這邊就用前面以 Valet 建立的網站網址

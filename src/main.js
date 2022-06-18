@@ -13,6 +13,7 @@ import MyFirstPlugin from "./MyFirstPlugin";
 import { createHead } from "@vueuse/head";
 const head = createHead();
 const app = createApp(App);
+
 // app.prototype.$http = axios
 app.use(router);
 app.use(store);
@@ -29,9 +30,7 @@ app.use(MyFirstPlugin, {
 app.use(createPinia());
 app.use(createMetaManager()); // add this line
 app.mount("#app");
-app.get("/", function (req, res) {
-  res.render();
-});
+
 router.beforeEach((to, from, next) => {
   //获取用户登录成功后储存的登录标志
   let getFlag = localStorage.getItem("Flag");

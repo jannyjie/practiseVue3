@@ -1,119 +1,135 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
+import { createRouter, createWebHashHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import LoginView from "../views/LoginView.vue";
 
 const routes = [
   {
-    path: '/',
-    redirect: 'login'
+    path: "/",
+    redirect: "login",
   },
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView
+    path: "/login",
+    name: "login",
+    component: LoginView,
   },
   {
-    path: '/home',
-    name: 'home',
+    path: "/home",
+    name: "home",
     component: HomeView,
-    
   },
   {
-    path: '/about',
-    name: 'about',
+    path: "/about",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-    meta:{
-      title: '測試',
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    meta: {
+      title: "測試",
       keepAlive: true,
-      reseType: '1'
+      reseType: "1",
     },
   },
   {
-    path: '/bb',
-    name: 'bb',
+    path: "/bb",
+    name: "bb",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/bbView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/bbView.vue"),
   },
   {
-    path: '/pinia',
-    name: 'pinia',
+    path: "/pinia",
+    name: "pinia",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/piniaView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/piniaView.vue"),
   },
   {
-    path: '/pinia',
-    name: 'pinia',
+    path: "/pinia",
+    name: "pinia",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/piniaView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/piniaView.vue"),
   },
   {
-    path: '/excel',
-    name: 'excel',
+    path: "/excel",
+    name: "excel",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ExcelView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ExcelView.vue"),
   },
   {
-    path: '/lodash',
-    name: 'lodash',
+    path: "/lodash",
+    name: "lodash",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/lodash.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/lodash.vue"),
   },
   {
-    path: '/pagination',
-    name: 'pagination',
+    path: "/pagination",
+    name: "pagination",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/paginationView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/paginationView.vue"),
   },
   {
-    path: '/allPluginView',
-    name: 'allPluginView',
+    path: "/allPluginView",
+    name: "allPluginView",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/allPluginView.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/allPluginView.vue"),
   },
   {
-    path: '/transfer',
-    name: 'transfer',
+    path: "/transfer",
+    name: "transfer",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/transfer.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/transfer.vue"),
   },
-]
-
-
+  {
+    path: "/vueUseView",
+    name: "vueUseView",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/vueUseView.vue"),
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  // history: createWebHistory(), // 目前用這個會出現 Cannot GET 的錯
+  history: createWebHashHistory(),
+  routes,
+});
 
-router.beforeEach((to,from,next)=>{
+router.beforeEach((to, from, next) => {
   const toPath = to.path;
   const fromPath = from.path;
-  console.log(fromPath)
-  console.log(toPath)
-  next()
+  console.log(fromPath);
+  console.log(toPath);
+  next();
 });
 
 router.onError((err) => {
-  console.log(err)
-})
+  console.log(err);
+});
 
-export default router
+export default router;

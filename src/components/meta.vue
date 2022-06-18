@@ -67,10 +67,20 @@ export default {
   setup() {
     useHead({
       title: "12",
-      Description:
-        "快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分",
-      keywords: "keywords",
       meta: [
+        {
+          name: "title",
+          content: "12",
+        },
+        {
+          name: "Description",
+          content:
+            "快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分",
+        },
+        {
+          name: "keywords",
+          content: "keywords",
+        },
         // {
         //   property: "og:type",
         //   content: "website",
@@ -87,11 +97,11 @@ export default {
         //   property: "og:url",
         //   content: "https://jannyjie.github.io/practiseVue3/dist/index.html",
         // },
-        // {
-        //   property: "og:image",
-        //   content:
-        //     "https://event.1111.com.tw/event22/admission_reserve/assets/img/backgrounds/1.jpg",
-        // },
+        {
+          property: "og:image",
+          content:
+            "https://event.1111.com.tw/event22/admission_reserve/assets/img/backgrounds/1.jpg",
+        },
         // {
         //   property: "og:description",
         //   content:

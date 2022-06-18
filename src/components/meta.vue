@@ -85,7 +85,7 @@ export default {
         {
           property: "og:image",
           content:
-            "https://jannyjie.github.io/practiseVue3/dist/img/1280x680.jpg",
+            "https://jannyjie.github.io/practiseVue3/dist/assets/img/1280x680.jpg",
         },
         {
           property: "og:description",

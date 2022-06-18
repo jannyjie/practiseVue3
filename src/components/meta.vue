@@ -17,7 +17,8 @@ export default {
       meta: [
         {
           property: "og:image",
-          image: "@/assets/1280x680.jpg",
+          image:
+            "https://jannyjie.github.io/practiseVue3/dist/img/1280x680.jpg",
         },
         {
           property: "twitter:title",

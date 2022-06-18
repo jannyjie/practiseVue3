@@ -7,6 +7,7 @@
       :content="tag.content"
     />
     <meta name="twitter:title" content="驗證中心|1111人力銀行" />
+    <meta property="og:image" content="../assets/1280x680.jpg" />
   </Head>
 </template>
 <script>

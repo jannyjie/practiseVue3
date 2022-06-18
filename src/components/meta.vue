@@ -18,7 +18,7 @@ export default {
         {
           property: "og:image",
           image:
-            "https://jannyjie.github.io/practiseVue3/dist/img/1280x680.jpg",
+            "https://event.1111.com.tw/event22/2022membercard/assets/img/og.jpg",
         },
         {
           property: "twitter:title",

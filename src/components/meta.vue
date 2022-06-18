@@ -79,7 +79,11 @@ export default {
           content: "zh_TW",
         },
         {
-          property: "og:locale",
+          property: "og:title",
+          content: "驗證中心|1111人力銀行",
+        },
+        {
+          property: "og:url",
           content: "https://jannyjie.github.io/practiseVue3/dist/index.html",
         },
         {

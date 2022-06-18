@@ -1,9 +1,38 @@
 <template>
   <Head>
+    <!-- Primary Meta Tags -->
+    <title>hello-world</title>
+    <meta name="title" content="hello-world" />
     <meta
-      property="og:image"
-      content="https://event.1111.com.tw/event22/2022membercard/assets/img/og.jpg"
+      name="description"
+      content="快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分"
     />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://jannyjie.github.io/practiseVue3/dist/index.html"
+    />
+    <meta property="og:title" content="hello-world" />
+    <meta
+      property="og:description"
+      content="快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分"
+    />
+    <meta property="og:image" content="" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://jannyjie.github.io/practiseVue3/dist/index.html"
+    />
+    <meta property="twitter:title" content="hello-world" />
+    <meta
+      property="twitter:description"
+      content="快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分"
+    />
+    <meta property="twitter:image" content="" />
     <!-- <title>Hello World</title> -->
     <!-- <base href="/base" />
     <html lang="en-US" class="theme-dark" />

@@ -29,13 +29,13 @@ module.exports = defineConfig({
       };
     }
   },
-  // chainWebpack: (config) => {
-  //   config.plugin("html").tap((args) => {
-  //     console.log(args);
-  //     args[0].title = "title标题";
-  //     args[0].keywords = "keywords内容";
-  //     args[0].description = "description内容";
-  //     return args;
-  //   });
-  // },
+  chainWebpack: (config) => {
+    config.plugin("html").tap((args) => {
+      console.log(args);
+      args[0].title = "title标题";
+      args[0].keywords = "keywords内容";
+      args[0].description = "description内容";
+      return args;
+    });
+  },
 });

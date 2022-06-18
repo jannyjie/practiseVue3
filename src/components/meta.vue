@@ -1,5 +1,9 @@
 <template>
   <Head>
+    <meta
+      property="og:image"
+      content="https://event.1111.com.tw/event22/2022membercard/assets/img/og.jpg"
+    />
     <!-- <title>Hello World</title> -->
     <!-- <base href="/base" />
     <html lang="en-US" class="theme-dark" />
@@ -34,10 +38,7 @@
     />
     <meta property="og:site_name" content="驗證中心|1111人力銀行" />
     <meta property="og:title" content="驗證中心|1111人力銀行" />
-    <meta
-      property="og:image"
-      content="https://event.1111.com.tw/event22/2022membercard/assets/img/og.jpg"
-    />
+    
     <meta
       property="og:description"
       content="快速驗證1111會員身分，取得專屬會員卡，即可參與會員專屬活動，享受尊榮禮遇身分"
@@ -86,11 +87,11 @@ export default {
         //   property: "og:url",
         //   content: "https://jannyjie.github.io/practiseVue3/dist/index.html",
         // },
-        {
-          property: "og:image",
-          content:
-            "https://event.1111.com.tw/event22/admission_reserve/assets/img/backgrounds/1.jpg",
-        },
+        // {
+        //   property: "og:image",
+        //   content:
+        //     "https://event.1111.com.tw/event22/admission_reserve/assets/img/backgrounds/1.jpg",
+        // },
         // {
         //   property: "og:description",
         //   content:

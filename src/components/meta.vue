@@ -1,13 +1,9 @@
 <template>
   <Head>
-    <meta
-      v-for="tag in metaList"
-      :key="tag.name"
-      :name="tag.name"
-      :content="tag.content"
-    />
-    <meta name="twitter:title" content="驗證中心|1111人力銀行" />
-    <meta property="og:image" content="../assets/1280x680.jpg" />
+    <!-- <title>Hello World</title> -->
+    <!-- <base href="/base" />
+    <html lang="en-US" class="theme-dark" />
+    <meta name="twitter:title" content="驗證中心|1111人力銀行" /> -->
   </Head>
 </template>
 <script>
@@ -16,19 +12,16 @@ import { Head, useHead } from "@vueuse/head";
 export default {
   name: "metaPage",
   setup() {
-    // const aa = ref("123");
     useHead({
       title: "12",
       meta: [
         {
-          property: "og:locale:alternate",
-          content: "zh",
-          key: "zh",
+          property: "og:image",
+          image: "@/assets/1280x680.jpg",
         },
         {
-          property: "og:locale:alternate",
-          content: "en",
-          key: "en",
+          property: "twitter:title",
+          image: "驗證中心|1111人力銀行",
         },
       ],
       htmlAttrs: { class: "first-class" },

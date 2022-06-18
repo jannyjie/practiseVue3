@@ -1,5 +1,4 @@
 <template>
-  xddfgdf
   <vueUsePage />
 </template>
 

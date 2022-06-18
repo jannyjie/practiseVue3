@@ -11,6 +11,8 @@ import "bootstrap";
 
 import MyFirstPlugin from "./MyFirstPlugin";
 import { createHead } from "@vueuse/head";
+import lazyPlugin from "vue3-lazy";
+
 const head = createHead();
 const app = createApp(App);
 
@@ -30,7 +32,11 @@ app.use(MyFirstPlugin, {
 app.use(createPinia());
 app.use(createMetaManager()); // add this line
 app.mount("#app");
-
+app.use(lazyPlugin, {
+  loading: "https://miro.medium.com/max/1400/1*EVXYwJR4UJqhoZCPM2ZR5Q.gif", // 图片加载时默认图片
+  error:
+    "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png", // 图片加载失败时默认图片
+});
 router.beforeEach((to, from, next) => {
   //获取用户登录成功后储存的登录标志
   let getFlag = localStorage.getItem("Flag");

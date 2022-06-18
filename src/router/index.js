@@ -112,6 +112,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/vueUseView.vue"),
   },
+  {
+    path: "/imgView",
+    name: "imgView",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/imgView.vue"),
+  },
 ];
 
 const router = createRouter({
